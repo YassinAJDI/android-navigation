@@ -59,7 +59,6 @@ dependencies {
     implementation "com.google.android.material:material:$rootProject.materialVersion"
     implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
     implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerVersion"
-
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
 
     //Navigation

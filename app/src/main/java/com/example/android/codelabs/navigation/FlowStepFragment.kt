@@ -29,17 +29,17 @@ import androidx.navigation.Navigation
 class FlowStepFragment : Fragment() {
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)
 
-        val flowStepNumber = arguments?.getInt("flowStepNumber")
-
         // TODO STEP 8 - Use type-safe arguments - remove previous line!
-//        val safeArgs: FlowStepFragmentArgs by navArgs()
-//        val flowStepNumber = safeArgs.flowStepNumber
+        val flowStepNumber = arguments?.let {
+            val safeArgs = FlowStepFragmentArgs.fromBundle(it)
+            safeArgs.flowStepNumber
+        }
         // TODO END STEP 8
 
         return when (flowStepNumber) {
@@ -52,7 +52,7 @@ class FlowStepFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<View>(R.id.next_button).setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.next_action)
+                Navigation.createNavigateOnClickListener(R.id.next_action)
         )
     }
 }
